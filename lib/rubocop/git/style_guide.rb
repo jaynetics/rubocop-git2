@@ -11,7 +11,7 @@ class RuboCop::Git::StyleGuide
       []
     else
       src = process_source(file)
-      team = RuboCop::Cop::Team.new(enabled_cops, config, rubocop_options)
+      team = RuboCop::Cop::Team.mobilize(enabled_cops, config, rubocop_options)
       team.respond_to?(:investigate) ? team.investigate(src).offenses : team.inspect_file(src)
     end
   end
